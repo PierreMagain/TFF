@@ -3,13 +3,13 @@ provider "azurerm" {
 }
 
 module "resource_group" {
-  source              = "${path.module}/modules/azure_resource_group_name"
+  source              = "./modules/azure_resource_group_name"
   resource_group_name = "ClusterK8S"
   location            = "Germany West Central"
 }
 
 module "network" {
-  source              = "${path.module}/modules/azure_resource_network"
+  source              = "./modules/azure_resource_network"
   resource_group_name = module.resource_group.resource_group_name
   location            = module.resource_group.resource_group_location
   address_space       = ["192.168.0.0/16"]
@@ -17,7 +17,7 @@ module "network" {
 }
 
 module "vm1" {
-  source              = "${path.module}/modules/azure_resource_vm_ubuntu"
+  source              = "./modules/azure_resource_vm_ubuntu"
   resource_group_name = module.resource_group.resource_group_name
   location            = module.resource_group.resource_group_location
   vnet_name           = module.network.vnet_name
@@ -28,7 +28,7 @@ module "vm1" {
 }
 
 module "vm2" {
-  source              = "${path.module}/modules/azure_resource_vm_ubuntu"
+  source              = "./modules/azure_resource_vm_ubuntu"
   resource_group_name = module.resource_group.resource_group_name
   location            = module.resource_group.resource_group_location
   vnet_name           = module.network.vnet_name
