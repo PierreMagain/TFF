@@ -13,6 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Terraform get
+        working-directory: terraform
+        run: terraform get
+
       - name: Terraform Init
         working-directory: terraform
         run: terraform init
