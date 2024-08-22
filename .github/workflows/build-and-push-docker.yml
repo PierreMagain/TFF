@@ -1,9 +1,7 @@
 name: Docker CI
 
 on:
-  push:
-    paths:
-      - 'test/**' # Déclenche le workflow sur les pushs vers la branche main
+  workflow_dispatch:
 
 jobs:
   docker_build:
