@@ -5,8 +5,11 @@ provider "azurerm" {
 }
 
 terraform {
-  backend "local" {
-    path = "./terraform.tfstate"
+  backend "azurerm" {
+    resource_group_name  = "my-terraform-state"
+    storage_account_name = "backendtfstatetff"
+    container_name       = "tfstatestorage"
+    key                  = "terraform.tfstate"
   }
 }
 
