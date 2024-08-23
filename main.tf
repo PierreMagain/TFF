@@ -2,6 +2,12 @@ provider "azurerm" {
   features {}
 }
 
+terraform {
+  backend "local" {
+    path = "./terraform.tfstate"
+  }
+}
+
 module "resource_group" {
   source              = "./modules/azure_resource_group_name"
   resource_group_name = "ClusterK8S"
