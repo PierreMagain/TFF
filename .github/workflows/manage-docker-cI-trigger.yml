@@ -2,7 +2,7 @@ name: Manage Docker CI Trigger
 
 on:
   workflow_run:
-    workflows: ["Provision Infrastructure"]  # Nom du workflow Terraform
+    workflows: ["Provision Infrastructure"]
     types:
       - completed
 
@@ -17,11 +17,15 @@ jobs:
         id: check_changes
         run: |
           git fetch --prune --unshallow
-          git diff --name-only HEAD^ HEAD | grep '^test/' || echo "No changes in 'test' directory"
+          if git diff --name-only HEAD^ HEAD | grep '^test/'; then
+            echo "changes=true" >> $GITHUB_ENV
+          else
+            echo "changes=false" >> $GITHUB_ENV
+          fi
 
       - name: Trigger Docker CI Workflow
-        if: steps.check_changes.outputs.changes != ''
-        uses: peter-evans/workflow-dispatch@v1
+        if: env.changes == 'true'
+        uses: peter-evans/repository-dispatch@v3
         with:
-          workflow: Docker CI
+          event-type: docker-ci-trigger
           token: ${{ secrets.GITHUB_TOKEN }}
