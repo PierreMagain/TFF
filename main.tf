@@ -58,7 +58,7 @@ resource "null_resource" "update_known_hosts" {
       sleep 30
       export VM1_IP=${module.vm1.public_ip_address}
       export VM2_IP=${module.vm2.public_ip_address}
-      echo "${VM1_IP} master" | sudo tee -a /etc/hosts
+      echo "${module.vm1.public_ip_address} master" | sudo tee -a /etc/hosts
       ${path.module}/scripts/add_known_hosts.sh
     EOT
   }
