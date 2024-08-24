@@ -2,12 +2,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-deploy
+  name: tff_dep
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: test
+      app: tff
       version: prod
   minReadySeconds: 2 #minimum delay for a pod to be considered available
   strategy:
@@ -18,12 +18,12 @@ spec:
   template:
     metadata:
       labels:
-        app: test
+        app: tff
         version: prod
     spec:
       containers:
-      - name: test-web
-        image: pierremagain/test:latest
+      - name: tff_webdev
+        image: pierremagain/tff_image:latest
         ports:
         - containerPort: 80
 
@@ -31,9 +31,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: test-svc
+  name: tff_svc
   labels:
-    app: test
+    app: tff
     version: prod
 spec:
   type: NodePort
@@ -42,5 +42,5 @@ spec:
       nodePort: 30005 # external cluster port
       protocol: TCP
   selector:
-    app: test
+    app: tff
     version: prod

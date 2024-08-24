@@ -22,8 +22,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          cd test
-          docker image build -t ${{ secrets.DOCKER_REGISTRY_USER }}/test:latest .
+          cd tff_webdev
+          docker image build -t ${{ secrets.DOCKER_REGISTRY_USER }}/tff_image:latest .
 
   docker_push:
     runs-on: self-hosted
@@ -36,4 +36,33 @@ jobs:
           password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
 
       - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_REGISTRY_USER }}/test:latest
+        run: docker push ${{ secrets.DOCKER_REGISTRY_USER }}/tff_image:latest
+
+  scp_manifest:
+    runs-on: self-hosted
+    needs: docker_push
+    steps:
+      - name: Copy manifest_tff.yml to remote server
+        run: |
+          scp -o StrictHostKeyChecking=no manifest_tff.yml azureuser@master:/home/azureuser/
+
+  k8s_deploy:
+    runs-on: self-hosted
+    needs: scp_manifest
+    steps:
+      - name: SSH into remote server and deploy Kubernetes resources
+        run: |
+          ssh -o StrictHostKeyChecking=no azureuser@master << EOF
+            # Check if the deployment exists and delete it if it does
+            if kubectl get deployment tff_dep; then
+              kubectl delete deployment tff_dep
+            fi
+
+            # Check if the service exists and delete it if it does
+            if kubectl get service tff_svc; then
+              kubectl delete service tff_svc
+            fi
+
+            # Apply the new deployment configuration
+            kubectl apply -f /home/azureuser/manifest_tff.yml
+          EOF
