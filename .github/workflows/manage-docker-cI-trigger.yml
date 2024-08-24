@@ -28,4 +28,5 @@ jobs:
         uses: peter-evans/repository-dispatch@v3
         with:
           event-type: docker-ci-trigger
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}  # Utilisation du PAT stocké
+          repository: PierreMagain/TFF
