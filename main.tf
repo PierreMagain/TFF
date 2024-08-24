@@ -60,7 +60,7 @@ resource "null_resource" "update_known_hosts" {
       sleep 30
       export VM1_IP=${module.vm1.public_ip_address}
       export VM2_IP=${module.vm2.public_ip_address}
-      ${path.module}/scripts/update_hosts.sh ${module.vm1.public_ip_address} master
+      ${path.module}/scripts/update_hosts.sh
       ${path.module}/scripts/add_known_hosts.sh
     EOT
   }
