@@ -22,7 +22,7 @@ spec:
         version: prod
     spec:
       containers:
-      - name: tff_webdev
+      - name: tff-webdev
         image: pierremagain/tff_image:latest
         ports:
         - containerPort: 80

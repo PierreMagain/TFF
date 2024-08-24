@@ -54,13 +54,13 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no azureuser@master << EOF
             # Check if the deployment exists and delete it if it does
-            if kubectl get deployment tff_dep; then
-              kubectl delete deployment tff_dep
+            if kubectl get deployment tff-dep; then
+              kubectl delete deployment tff-dep
             fi
 
             # Check if the service exists and delete it if it does
-            if kubectl get service tff_svc; then
-              kubectl delete service tff_svc
+            if kubectl get service tff-svc; then
+              kubectl delete service tff-svc
             fi
 
             # Apply the new deployment configuration
