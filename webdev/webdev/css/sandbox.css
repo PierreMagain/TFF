@@ -1,0 +1,155 @@
+body {
+  background-color: var(--light-yellow);
+}
+
+h1,h2 {
+  color: var(--brown);
+}
+
+main > section {
+  background-color: wheat;
+  padding: 2px 1% 1% 1%;
+  margin-bottom: 20px;
+}
+
+aside h2 {
+  color: var(--blue);
+}
+
+.image_content {
+  background-color: yellow;
+  width: 250px;
+  box-sizing: border-box;
+  margin: 10px 20px 10px 10px;
+  padding: 20px;
+  border: 6px solid blue;
+}
+
+audio {
+  width: 30%;
+}
+
+fieldset {
+  color: var(--brown);
+  font-size: 1.2rem;
+  margin-bottom: 1%;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  background-color: var(--light-grey);
+}
+
+.item {
+  color: white;
+  font-size: 1.2 rem;
+  padding: 5px;
+}
+
+.bruxelles {
+  background-color: darkblue;
+}
+
+.madrid {
+  background-color: darkorange;
+}
+
+.oslo {
+  background-color: forestgreen;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.justify_start {
+  justify-content: flex-start;
+}
+
+.justify_center {
+  justify-content: center;
+}
+
+.justify_end {
+  justify-content: flex-end;
+}
+
+.justify_between {
+  justify-content: space-between;
+}
+
+.justify_around {
+  justify-content: space-around;
+}
+
+.thicker {
+  height: 60px;
+}
+
+.align_stretch {
+  align-items: stretch;
+}
+
+.align_start {
+  align-items: flex-start;
+}
+
+.align_center {
+  align-items: center;
+}
+
+.align_end {
+  align-items: flex-end;
+}
+
+.grow_0 {
+  flex-grow: 0;
+}
+
+.grow_1 {
+  flex-grow: 1;
+}
+
+.self_stretch {
+  align-self: stretch;
+}
+
+.self_start {
+  align-self: flex-start;
+}
+
+.self_center {
+  align-self: center;
+}
+
+.self_end {
+  align-self: flex-end;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
