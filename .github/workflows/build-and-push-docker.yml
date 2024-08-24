@@ -47,22 +47,23 @@ jobs:
           scp -o StrictHostKeyChecking=no manifest_tff.yml azureuser@master:/home/azureuser/
 
   k8s_deploy:
-    runs-on: self-hosted
-    needs: scp_manifest
-    steps:
-      - name: SSH into remote server and deploy Kubernetes resources
-        run: |
-          ssh -o StrictHostKeyChecking=no azureuser@master << EOF
-            # Check if the deployment exists and delete it if it does
-            if kubectl get deployment tff-dep; then
-              kubectl delete deployment tff-dep
-            fi
+  runs-on: self-hosted
+  needs: scp_manifest
+  steps:
+    - name: SSH into remote server and deploy Kubernetes resources
+      run: |
+        ssh -o StrictHostKeyChecking=no azureuser@master << EOF
+          source ~/.bashrc
+          # Check if the deployment exists and delete it if it does
+          if kubectl get deployment tff-dep; then
+            kubectl delete deployment tff-dep
+          fi
 
-            # Check if the service exists and delete it if it does
-            if kubectl get service tff-svc; then
-              kubectl delete service tff-svc
-            fi
+          # Check if the service exists and delete it if it does
+          if kubectl get service tff-svc; then
+            kubectl delete service tff-svc
+          fi
 
-            # Apply the new deployment configuration
-            kubectl apply -f /home/azureuser/manifest_tff.yml
-          EOF
+          # Apply the new deployment configuration
+          kubectl apply -f /home/azureuser/manifest_tff.yml
+        EOF
