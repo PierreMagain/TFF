@@ -53,17 +53,16 @@ jobs:
       - name: SSH into remote server and deploy Kubernetes resources
         run: |
           ssh -o StrictHostKeyChecking=no azureuser@master << EOF
-            source ~/.bashrc
             # Check if the deployment exists and delete it if it does
-            if kubectl get deployment tff-dep; then
-              kubectl delete deployment tff-dep
+            if microk8s kubectl get deployment tff-dep; then
+              microk8s kubectl delete deployment tff-dep
             fi
 
             # Check if the service exists and delete it if it does
-            if kubectl get service tff-svc; then
-              kubectl delete service tff-svc
+            if microk8s kubectl get service tff-svc; then
+              microk8s kubectl delete service tff-svc
             fi
 
             # Apply the new deployment configuration
-            kubectl apply -f /home/azureuser/manifest_tff.yml
+            microk8s kubectl apply -f /home/azureuser/manifest_tff.yml
           EOF
