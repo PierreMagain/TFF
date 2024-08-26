@@ -7,7 +7,8 @@
     <meta name"description" content="J'apprends à coder un site web">
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/sandbox.css">
+    <link rel="stylesheet" href="css/sandbox-js.css">
   </head>
   <body>
     <!--site web modifié le 07-12-2023-->
@@ -26,36 +27,11 @@
     </header>
     
     <div class="central">
-      <main>
-        <h1>Bienvenue dans le formunaire de contact</h1>
-        
-        <form action="form-processing.html" >
-          <fieldset>
-            <legend>Votre prénom <span class="red">*</span></legend>
-            <input type="text" placeholder="Entrez votre prénom" class="field_content">
-          </fieldset>
-          
-          <fieldset>
-            <legend>Votre nom <span class="red">*</span></legend>
-            <input type="text" placeholder="Entrez votre nom" class="field_content">
-          </fieldset>
-          
-          <fieldset>
-            <legend>Votre adresse de courriel <span class="red">*</span></legend>
-            <input type="email" placeholder="Entrez votre adresse email" class="field_content">
-          </fieldset>
-          
-          <fieldset>
-            <legend>Votre message <span class="red">*</span></legend>
-            <textarea placeholder="Entrez votre message" 
-              class="field_content txtarea"></textarea>
-          </fieldset>
-          
-          <fieldset>
-            <input type="reset" value="Réinitialisation" class="button">
-            <input type="submit" value="Envoyer" class="button">
-          </fieldset>
-        </form>
+      <main id="main">
+        <h1>Bienvenue dans le bac à sable Javascript</h1>
+        <p id="jsDom1">Contenu initial de ce paragraphe</p>
+        <p id="jsDom2">Javascript peut mofifier le style</p>
+        <p id="jsDom3">Javascript peur appeler un fichier CSS</p>
       </main>
       
       <aside>
@@ -85,5 +61,6 @@
         <p>Rue du Colisée - Rome - Italie Antique</p>
       </address>
     </footer>
+    <script src="js/sandbox.js"></script>
   </body>
 </html>

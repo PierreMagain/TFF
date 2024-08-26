@@ -1,0 +1,78 @@
+body {
+  background-color: var(--light-orange);
+}
+
+h1,h2 {
+  color: orangered;
+}
+
+.js_Dom3 {
+  color: blue;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.js_Dom4 {
+  color: grey;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.js_Dom5 {
+  background-color: #3366cc;
+  border: none;
+  border-radius: 10px;
+  color: #f1f1f1;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.slider_image {
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.message {
+  text-align: center;
+  margin-top: 0;
+  font-size: 0.8rem;
+}
+
+.message_start {
+  color: orangered;
+}
+
+.message_stop {
+  color: var(--grey);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
