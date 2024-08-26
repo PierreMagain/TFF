@@ -44,7 +44,7 @@ jobs:
     steps:
       - name: Copy manifest_tff.yml to remote server
         run: |
-          scp -o StrictHostKeyChecking=no manifest_tff.yml azureuser@master:/home/azureuser/
+          scp -o StrictHostKeyChecking=no manifest_tff.yml azureuser@tff-master:/home/azureuser/
 
   k8s_deploy:
     runs-on: self-hosted
@@ -52,7 +52,7 @@ jobs:
     steps:
       - name: SSH into remote server and deploy Kubernetes resources
         run: |
-          ssh -o StrictHostKeyChecking=no azureuser@master << EOF
+          ssh -o StrictHostKeyChecking=no azureuser@tff-master << EOF
             # Check if the deployment exists and delete it if it does
             if microk8s kubectl get deployment tff-dep; then
               microk8s kubectl delete deployment tff-dep

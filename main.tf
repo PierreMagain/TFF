@@ -34,7 +34,7 @@ module "vm1" {
   vnet_name           = module.network.vnet_name
   subnet_name         = module.network.subnet_name
   subnet_id           = module.network.subnet_id
-  vm_name             = "master"
+  vm_name             = "tff-master"
   vm_size             = "Standard_B2s"
 }
 
@@ -45,7 +45,7 @@ module "vm2" {
   vnet_name           = module.network.vnet_name
   subnet_name         = module.network.subnet_name
   subnet_id           = module.network.subnet_id
-  vm_name             = "node1"
+  vm_name             = "tff-node"
   vm_size             = "Standard_B2s"
 }
 
