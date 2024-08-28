@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>J'apprends à coder un site web</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jules CESAR">
+    <meta name"description" content="J'apprends à coder un site web">
+    <link rel="stylesheet" href="css/global.css">
+  </head>
+  <body>
+  <!--site web modifié le 07-12-2023-->
+    <header>
+      <div>
+        <img src="img/html-white.svg" alt="Logo HTML" class="header_logo">
+        <img src="img/css-white.svg" alt="Logo CSS" class="header_logo">
+      </div>
+    
+      <nav>
+        <a href="index.html" class="nav_link">Accueil</a>
+        <a href="sandbox.html" class="nav_link">Sandbox</a>
+        <a href="contact.html" class="nav_link">Contact</a>
+      </nav>
+    </header>
+    
+    <main>
+      <h1>Bienvenue sur le site d'apprentissage du codage web</h1>
+      
+      <img src="img/home.jpg" alt="Image d'accueil" class="home_image">
+      
+      <a href="https://developer.mozilla.org/fr/docs/Web" target="_blank">
+      <img src="img/mdn-web-docs.svg" alt="Logo MDN"></a>
+      
+      <p>Ceci est mon premier paragraphe. Son contenu "coulera" automatiquement
+       de ligne en ligne jusqu'à la balise fermante</p>
+       
+      <p>Mon deuxième paragraphe. La balise d'ouverture du paragraphe a 
+       automatiquement ajouté un "retour" à la ligne</p>
+       
+      <h2>Une liste ordonnée</h2>
+      <ol start="50" reversed class="red font_M"><!--Ordered List-->
+        <li><span class="grey font_L">Bruxelles</span></li>
+        <li><span class="grey font_L">Paris</span></li>
+        <li><span class="grey font_L">Berlin</span></li>
+      </ol>
+      
+      <h2>Une liste non ordonnée</h2>
+      <ul class="red font_M"><!--Unordered List-->
+        <li><span class="grey font_L">Lundi</span></li>
+        <li><span class="grey font_L">Mardi</span></li>
+        <li><span class="grey font_L">Mercredi</span></li>
+      </ul>
+      
+      <h2>Exemple de fichier audio</h2>
+      <audio controls>
+        <source src="audio/perception.oga" type="audio/ogg">
+        <source src="audio/perception.mp3" type="audio/mpeg">
+      </audio>
+      
+      <h2>Exemple de fichier vidéo</h2>
+      <video muted controls>
+        <source src="video/welcome.ogv" type="video/ogg">
+        <source src="video/welcome.mp4" type="video/mp4">
+      </video>
+    </main>
+  </body>
+</html>

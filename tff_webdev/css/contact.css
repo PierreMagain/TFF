@@ -1,0 +1,12 @@
+form {
+  width: 90%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 1%;
+}
+
+.field_content {
+  display: block;
+  width: 90%;
+  margin-bottom: 2%;
+}
