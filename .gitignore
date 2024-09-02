@@ -4,5 +4,3 @@
 terraform.tfstate
 terraform.tfstate.backup
 .terraform.tfstate.lock.info
-TFF.pdf
-Infra_TFF.png
